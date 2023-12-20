@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { simplifiedProduct } from "../interface";
 import { client } from "../lib/sanity";
-import category from "@/sanity/schemas/category";
+
 
 
 async function getData(category: string) {
