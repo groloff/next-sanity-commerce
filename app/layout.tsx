@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Jost } from 'next/font/google'
 import './globals.css'
+import Navbar from './components/Navbar'
+import CartProvider from './components/Providers'
+import ShoppingCartModal from './components/ShoppingCartModal'
 
-const inter = Inter({ subsets: ['latin'] })
+const jost = Jost({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={jost.className}>
+        <CartProvider>
+          <Navbar />
+          <ShoppingCartModal />
+          {children}
+        </CartProvider>
+        
+      </body>
     </html>
   )
 }
